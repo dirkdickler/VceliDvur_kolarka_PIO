@@ -42,6 +42,8 @@ Nastavenie : wifi siet: hala  pass: 25252525   IP 192.168.1.10  SM:255.255.255.0
 #include "main.h"
 #include "index.h"
 #include "define.h"
+#include "FS.h"
+#include "Update.h"
 
 const int Rele1 = 5;
 const int Rele2 = 0;
@@ -435,7 +437,7 @@ void loop()
 	timer_10ms.update();
 	timer_1sek.update();
 	timer_10sek.update();
-	AsyncElegantOTA.loop();
+	//AsyncElegantOTA.loop();
 	esp_task_wdt_reset();
 }
 
@@ -913,7 +915,7 @@ void FuncServer_On(void)
 							   "Posledne nacitana karta 1:%s<br>"
 							   "Posledne nacitana karta 2:%s<br>Citac:%u<br>"
 							   "RTC:%s",
-						  firmaware, citac, citac2,
+						  firmware, citac, citac2,
 						  digitalRead(Rele1), CasovacOtvoreniZamku1,
 						  digitalRead(Rele2), CasovacOtvoreniZamku2,
 						  loc_buf1, loc_buf2, cnt, loc_buf);
